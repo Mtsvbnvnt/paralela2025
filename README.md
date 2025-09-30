@@ -106,7 +106,7 @@ Las pruebas incluyen: Matemáticas, Lenguaje y Literatura, Ciencias Sociales, Bi
 
 #### Archivo de Resultados (`resultados.csv`)
 
-- Separador: `,`
+- **Separador: `;`**
 - Campos: CÓDIGO ESTUDIANTE, PES, PRUEBA, BUENAS, OMITIDAS, MALAS, PUNTAJE
 - Todos los campos entre comillas dobles.
 - PES: 7 decimales, PUNTAJE: 2 decimales.
@@ -155,7 +155,7 @@ proyecto_paralela/
 
 - **Chunking**: Procesa respuestas en lotes de 10,000 para controlar uso de memoria.
 - **Paralelismo**: Usa `#pragma omp parallel for` para distribuir cálculos en múltiples hilos.
-- **Búsqueda Eficiente**: Map para respuestas correctas, búsqueda binaria implícita en estudiantes.
+- **Búsqueda Eficiente**: Se utiliza un `std::map` para una búsqueda rápida de las pautas de respuestas correctas. La búsqueda de estudiantes se realiza mediante una búsqueda lineal.
 
 ## Contribución
 
