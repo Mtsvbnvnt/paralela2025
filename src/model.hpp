@@ -16,13 +16,13 @@ struct Estudiante {
 
 struct RespuestaCorrecta {
     std::string prueba;
-    std::vector<char> respuestas; // 100 respuestas correctas
+    std::vector<char> respuestas;
 };
 
 struct RespuestaEstudiante {
     std::string estudiante;
     std::string prueba;
-    std::vector<std::string> respuestas; // 100 respuestas, puede ser "" para omitida
+    std::vector<std::string> respuestas;
 };
 
 struct Resultado {

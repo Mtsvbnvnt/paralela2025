@@ -4,7 +4,11 @@
 #include <iostream>
 #include <omp.h>
 
-std::vector<Resultado> procesar(const std::vector<Estudiante>& estudiantes, const std::vector<RespuestaEstudiante>& respuestas, const std::vector<RespuestaCorrecta>& correctas) {
+std::vector<Resultado> procesar(
+    const std::vector<Estudiante>& estudiantes, 
+    const std::vector<RespuestaEstudiante>& respuestas, 
+    const std::vector<RespuestaCorrecta>& correctas
+) {
     std::map<std::string, RespuestaCorrecta> correctas_map;
     for (const auto& c : correctas) {
         correctas_map[c.prueba] = c;
@@ -42,9 +46,13 @@ std::vector<Resultado> procesar(const std::vector<Estudiante>& estudiantes, cons
             double puntaje = 100 + (aciertos / 100.0) * 900;
 
             // Encontrar estudiante
-            auto est_it = std::find_if(estudiantes.begin(), estudiantes.end(), [&](const Estudiante& e){ return e.codigo == resp.estudiante; });
+            auto est_it = std::find_if(
+                estudiantes.begin(), 
+                estudiantes.end(), 
+                [&](const Estudiante& e)
+                { return e.codigo == resp.estudiante; }
+            );
             if (est_it == estudiantes.end()) {
-                std::cout << "Estudiante no encontrado " << resp.estudiante << std::endl;
                 continue;
             }
             double pes = (est_it->promedio_notas / 7.0) * 1000;
