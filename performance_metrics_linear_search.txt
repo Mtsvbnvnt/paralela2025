@@ -1,0 +1,16 @@
+Performance Metrics (using data/cpyd):
+System Info:
+  Number of CPU cores: 8
+Data Info:
+  Total responses: 1764582
+  Number of students: 294097
+  Number of chunks processed: 177
+Timing (seconds):
+  Time to load estudiantes: 2.52254
+  Time to load correctas: 0.0012872
+  Total processing time (chunks): 8572.34
+  Overall time: 8574.87
+  Average time per chunk: 48.3894
+Results:
+  Total results processed: 1135992
+  Processing rate (results/second): 132.479

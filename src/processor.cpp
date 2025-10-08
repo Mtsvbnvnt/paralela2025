@@ -1,5 +1,5 @@
 #include "processor.hpp"
-#include <map>
+#include <unordered_map>
 #include <algorithm>
 #include <iostream>
 #include <omp.h>
@@ -9,9 +9,14 @@ std::vector<Resultado> procesar(
     const std::vector<RespuestaEstudiante>& respuestas, 
     const std::vector<RespuestaCorrecta>& correctas
 ) {
-    std::map<std::string, RespuestaCorrecta> correctas_map;
+    std::unordered_map<std::string, RespuestaCorrecta> correctas_map;
     for (const auto& c : correctas) {
         correctas_map[c.prueba] = c;
+    }
+
+    std::unordered_map<std::string, Estudiante> estudiantes_map;
+    for (const auto& e : estudiantes) {
+        estudiantes_map[e.codigo] = e;
     }
 
     std::vector<Resultado> resultados;
@@ -46,16 +51,11 @@ std::vector<Resultado> procesar(
             double puntaje = 100 + (aciertos / 100.0) * 900;
 
             // Encontrar estudiante
-            auto est_it = std::find_if(
-                estudiantes.begin(), 
-                estudiantes.end(), 
-                [&](const Estudiante& e)
-                { return e.codigo == resp.estudiante; }
-            );
-            if (est_it == estudiantes.end()) {
+            auto est_it = estudiantes_map.find(resp.estudiante);
+            if (est_it == estudiantes_map.end()) {
                 continue;
             }
-            double pes = (est_it->promedio_notas / 7.0) * 1000;
+            double pes = (est_it->second.promedio_notas / 7.0) * 1000;
 
             Resultado r;
             r.codigo_estudiante = resp.estudiante;
