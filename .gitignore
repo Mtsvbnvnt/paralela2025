@@ -43,6 +43,7 @@ Thumbs.db
 
 # Data
 data/
+.\tests\fortran_test\resultados.csv
 
 # Logs and debug
 *.log
@@ -68,3 +69,4 @@ temp_subset_paes.csv
 chunk_size_metrics.csv
 chunk_test_resultados.csv
 performance_metrics.txt
+resultados.csv
