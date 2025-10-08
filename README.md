@@ -253,9 +253,32 @@ Todas las pruebas de integración pasaron!
 - **Manejo de Errores**: Archivos inexistentes, formatos inválidos
 - **Paralelismo**: Validación de resultados consistentes con OpenMP
 
-## Licencia
+## Optimizaciones
 
-Este proyecto es para fines educativos. Consulta con el docente para distribución.
+- **Chunking**: Procesa respuestas en lotes de 10,000 para controlar uso de memoria.
+- **Paralelismo**: Usa `#pragma omp parallel for` para distribuir cálculos en múltiples hilos.
+- **Búsqueda Eficiente**: Se utiliza `std::unordered_map` para búsquedas rápidas de respuestas correctas y estudiantes, reemplazando búsquedas lineales previas.
+
+### Análisis de Rendimiento
+
+El proyecto fue optimizado para mejorar el rendimiento de búsquedas. Inicialmente, se usaba búsqueda lineal (O(n)) para localizar estudiantes por código en el vector de estudiantes, lo que resultaba en tiempos de procesamiento altos para datasets grandes.
+
+#### Cambios Implementados
+- Reemplazo de `std::map` por `std::unordered_map` para respuestas correctas (promedio O(1) vs. O(log n)).
+- Creación de un `std::unordered_map` para estudiantes, indexado por código, eliminando la búsqueda lineal.
+
+#### Resultados de Benchmarking
+Usando datos reales (`data/cpyd` con 294,097 estudiantes y 1,764,582 respuestas, procesados en 177 chunks):
+
+| Método | Tiempo Total de Procesamiento (s) | Tiempo Promedio por Chunk (s) | Tasa de Procesamiento (resultados/s) |
+|--------|-----------------------------------|-------------------------------|--------------------------------------|
+| Búsqueda Lineal | 8572.34 | 48.39 | 132.48 |
+| Unordered Map | 362.71 | 1.99 | 3109.86 |
+
+- **Mejora**: ~23x más rápido en tiempo total, con una tasa de procesamiento aumentada en ~23x.
+- **Impacto**: Reduce el cuello de botella en búsquedas, permitiendo escalabilidad para datasets más grandes. Los gráficos en `docs/diagrams/` muestran variaciones por tamaño de chunk, pero la optimización de búsqueda es el factor clave.
+
+Para más detalles, consulta `docs/spec.md` y los archivos de métricas en la raíz del proyecto.
 
 ## Autores
 
