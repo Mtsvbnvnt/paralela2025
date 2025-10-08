@@ -39,3 +39,18 @@ add_executable(test_integration
 )
 
 target_link_libraries(test_integration OpenMP::OpenMP_CXX)
+
+# Performance test
+add_executable(performance_test tests/performance/performance_test.cpp src/csv_parser.cpp src/processor.cpp)
+target_link_libraries(performance_test OpenMP::OpenMP_CXX)
+
+# Chunk size test
+add_executable(test_chunk_size tests/performance/test_chunk_size.cpp src/csv_parser.cpp src/processor.cpp)
+target_link_libraries(test_chunk_size OpenMP::OpenMP_CXX)
+
+# Add tests
+add_test(NAME test_csv_parser COMMAND test_csv_parser)
+add_test(NAME test_processor COMMAND test_processor)
+add_test(NAME test_integration COMMAND test_integration)
+add_test(NAME performance_test COMMAND performance_test)
+add_test(NAME test_chunk_size COMMAND test_chunk_size)

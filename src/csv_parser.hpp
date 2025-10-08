@@ -11,6 +11,11 @@ std::vector<Estudiante> leer_estudiantes(const std::string& archivo);
 std::vector<RespuestaCorrecta> leer_correctas(const std::string& archivo);
 std::vector<RespuestaEstudiante> leer_respuestas(const std::string& archivo);
 std::vector<RespuestaEstudiante> leer_chunk(std::ifstream& file, size_t max_lines);
-void escribir_resultados(const std::vector<Resultado>& resultados, const std::string& archivo, bool write_header = true);
+
+void escribir_resultados(
+    const std::vector<Resultado>& resultados, 
+    const std::string& archivo, 
+    bool write_header = true
+);
 
 #endif // CSV_PARSER_HPP
