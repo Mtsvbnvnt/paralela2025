@@ -41,9 +41,6 @@ Thumbs.db
 *.bak
 *.old
 
-# Data
-data/
-.\tests\fortran_test\resultados.csv
 
 # Logs and debug
 *.log
