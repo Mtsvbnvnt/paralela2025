@@ -119,17 +119,12 @@ proyecto_paralela/
 ├── README.md               # Este archivo
 ├── src/                    # Código fuente
 │   ├── main.cpp            # Punto de entrada
-│   ├── csv_parser.hpp      # Declaraciones del parser CSV
-│   ├── csv_parser.cpp      # Implementación del parser CSV
+│   ├── csv_parser.hpp      # Declaraciones del 
+│   ├── csv_parser.cpp      # Implementación del 
 │   ├── model.hpp           # Estructuras de datos
-│   ├── processor.hpp       # Declaraciones del procesador
-│   └── processor.cpp       # Implementación del procesador
-├── data/                   # Datos de entrada y salida
-│   └── cpyd/               # Archivos reales
-│       ├── estudiantes.csv
-│       ├── paes.csv
-│       ├── correctas.csv
-│       └── resultados.csv
+│   ├── processor.hpp       # Declaraciones del 
+│   └── processor.cpp       # Implementación del 
+├── data/                   # Datos de entrada y 
 ├── tests/                  # Pruebas
 │   ├── integration/
 │   └── unit/
@@ -140,6 +135,7 @@ proyecto_paralela/
 └── documentos/             # Documentos del proyecto
     ├── contexto.txt
     └── Trabajo Paralelo.pdf
+│── resultados.csv
 ```
 
 ## Arquitectura del Código
