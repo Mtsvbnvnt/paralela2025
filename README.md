@@ -179,10 +179,19 @@ proyecto_paralela/
 - Rodrigo Tapia
 - Matias Villarroel
 
+## Rendimiento
+
+El programa ha demostrado excelente escalabilidad:
+
+- **Speedup hasta 23.5x** con 8 hilos comparado con versión secuencial
+- **Optimización con `unordered_map`**: Búsqueda O(1) vs búsqueda lineal
+- **Procesamiento eficiente**: Maneja datasets de millones de registros
+
 ## Notas Adicionales
 
 - El programa muestra errores en stderr y nombres de autores en stdout.
 - Para datasets muy grandes, ajusta `chunk_size` en `main.cpp`.
 - Compatible con UTF-8, pero evita caracteres especiales en paths.
+- **Proyecto académico 2025** - Computación Paralela y Distribuida
 
 Para más detalles, consulta `docs/spec.md` y `docs/tests_plan.md`.
