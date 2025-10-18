@@ -59,6 +59,10 @@ __pycache__/
 # Node modules (if any)
 node_modules/
 
+# Data files (too large for GitHub)
+data/cpyd/
+data/*.csv
+
 # Other
 *.stackdump
 performance_resultados.csv
